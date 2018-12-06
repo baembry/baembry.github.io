@@ -1,0 +1,2 @@
+-refactor data fire events.list to use query parameters to avoid hard coding the options
+

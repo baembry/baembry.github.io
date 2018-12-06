@@ -1,0 +1,592 @@
+<!-- Website by Brian Embry -->
+<!DOCTYPE html>
+<html>
+  <title>Picture It Sold!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/pictureItSold/index.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Oswald"
+    rel="stylesheet"
+  />
+  <link rel="icon" type="image/png" href="/pictureItSold/pictureItSold/assets/PISfavicon.png" />
+
+  <body>
+    <!-- facebook like logic -->
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src =
+          "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
+
+    <!-- Navbar -->
+    <div class="nav">
+      <a href="#home" class="nav-item">
+        <img class="nav-icon" src="/pictureItSold/assets/pis-logo.jpg" />
+      </a>
+      <div class="nav-links">
+        <div class="link" onclick="goTo('#about')">About</div>
+        <div class="link" onclick="goTo('#tours')">Tours</div>
+        <div class="link" onclick="goTo('#contact')">Contact</div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="home">
+      <div class="slideshow">
+        <img
+          class="filler"
+          src="/pictureItSold/assets/tours/main/photo_41089609-1500x1000.jpg"
+          alt="House"
+          style="opacity: 0"
+        />
+        <img
+          class="header-image "
+          src="/pictureItSold/assets/tours/main/briggs_34909_primary.0.jpg"
+          alt="House"
+          style="opacity: 1"
+        />
+        <img
+          class="header-image "
+          src="/pictureItSold/assets/tours/main/photo_42579481-1500x1000.jpg"
+          alt="House"
+        />
+        <img
+          class="header-image "
+          src="/pictureItSold/assets/tours/main/photo_42579484-1500x1000.jpg"
+          alt="House"
+        />
+        <img
+          class="header-image "
+          src="/pictureItSold/assets/tours/main/photo_42579489-1500x1000.jpg"
+          alt="House"
+        />
+        <img
+          class="header-image "
+          src="/pictureItSold/assets/tours/main/photo_41089609-1500x1000.jpg"
+          alt="House"
+        />
+        <img
+          class="header-image"
+          src="/pictureItSold/assets/tours/main/photo_41089610-1500x1000.jpg"
+          alt="House"
+        />
+        <img
+          class="header-image "
+          src="/pictureItSold/assets/tours/main/photo_41777613-1300x866.jpg"
+          alt="House"
+        />
+        
+      </div>
+    </header>
+    <!-- Page content -->
+    <div class="main">
+      <!-- quote -->
+      <div class="section quote">
+        <h3 class="section-title">"Simply the best"</h3>
+        <p>
+          When I want to sell a home fast, for top dollar, I call Picture It Sold! Hands
+          down the best real estate photographer between Austin and Dallas. The
+          return on investment is extraordinary.
+        </p>
+        <cite>-Rea Lis Tatagent, Caldwell Realty</cite>
+      </div>
+
+      <!-- featured in -->
+      <div class="section">
+        <div class="logo-grid">
+          <div class="logo-container">
+            <img src="/pictureItSold/assets/apt-therapy.png" alt="Apartment Therapy Logo" />
+          </div>
+          <div class="logo-container">
+            <img src="/pictureItSold/assets/wsj-logo.png" alt="Wall Street Journal Logo" />
+          </div>
+          <div class="logo-container">
+            <img
+              src="/pictureItSold/assets/country-living-logo.png"
+              alt="Country Living Logo"
+            />
+          </div>
+          <div class="logo-container">
+            <img
+              src="/pictureItSold/assets/business-insider-logo.jpeg"
+              alt="Business Insider Logo"
+            />
+          </div>
+          <div class="logo-container">
+            <img src="/pictureItSold/assets/curbed-logo.jpeg" alt="Curbed Logo" />
+          </div>
+          <div class="logo-container">
+            <img src="/pictureItSold/assets/fox-logo.png" alt="Fox News Logo" />
+          </div>
+          <div class="logo-container">
+            <img
+              src="/pictureItSold/assets/southern-living-logo.png"
+              alt="Southern Living Logo"
+            />
+          </div>
+          <div class="logo-container">
+            <img
+              src="/pictureItSold/assets/Boston-Globe-Logo-300x274.png"
+              alt="Southern Living Logo"
+            />
+          </div>
+          <div class="logo-container">
+            <img
+              src="/pictureItSold/assets/today-facebooklike-icon2.jpg"
+              alt="Southern Living Logo"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div class="section" id="about">
+        <h3 class="section-title">About</h3>
+        <p>
+          Premier real estate photography serving
+          Waco, Temple, and Belton.
+        </p>
+      </div>
+      <div class="services-container section">
+        <div class="service-container">
+            <img
+              class="service-icon"
+              src="/pictureItSold/assets/services-icons/icons8-quadcopter-filled-100.png"
+            />
+          <div class="service-description">
+            <h3>Drone Service</h3>
+            <p>Have a large property? Our FAA certified, fully insured drone pilots will take gorgeous aerial shots and videos of your listing with the latest in drone technology.</p>
+          </div>
+        </div>
+        <div class="service-container">
+            <img 
+            class="service-icon"
+            src="/pictureItSold/assets/services-icons/icons8-documentary-100.png"/>
+          <div class="service-description">
+            <h3>Video</h3>
+            <p> Sell prospective buyers the lifestyle they are looking for. Our full motion videos show them what it <em>feels</em> like to live in the home you've listed.</p>
+          </div>
+        </div>
+        <div class="service-container">
+              <img 
+              class="service-icon"
+              src="/pictureItSold/assets/services-icons/icons8-user-96.png"/>
+          <div class="service-description">
+            <h3>Headshots</h3>
+            <p>We also offer professional headshots! You won't believe how great you can look. Natural airbrushing and digital makeup application available. You, but better.  </p>
+          </div>
+        </div>
+      </div>
+
+        <!-- carol -->
+        <div class="section">
+          <img
+            class="headshot"
+            src="/pictureItSold/assets/square-carol.jpg"
+            alt="Carol"
+            title="Carol"
+          />
+          <div class="headshot-caption">
+            <p class="caption">Carol Embry</p>
+            <p class="transparent">Founder and Photographer</p>
+            <p>
+              Carol loves photographing homes, puppies, and all things Waco.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tours Section -->
+        <div class="section tours" id="tours">
+          <h3 class="section-title">Photo Tours</h3>
+          <div class="tour-grid">
+            <div class="tour-container" id="tour1-button">
+              <span class="tour-title">3315 Austin Ave.</span>
+              <img
+                class="tour-thumbnail"
+                src="/pictureItSold/assets/tours/tour1/photo_12963439-1500x1000.jpg"
+                alt="House"
+              />
+            </div>
+            <div class="tour-container" id="tour2-button">
+              <span class="tour-title">4477 Elk Rd.</span>
+              <img
+                class="tour-thumbnail"
+                src="/pictureItSold/assets/tours/tour2/1.jpg"
+                alt="House"
+              />
+            </div>
+            <div class="tour-container" id="tour3-button">
+              <span class="tour-title">17029 Star Canyon Dr.</span>
+              <img
+                class="tour-thumbnail"
+                src="/pictureItSold/assets/tours/tour3/photo_7729112-1500x1000.jpg"
+                alt="House"
+              />
+            </div>
+            <div class="tour-container" id="tour4-button">
+              <span class="tour-title">613 Austin Ave.</span>
+              <img
+                class="tour-thumbnail"
+                src="/pictureItSold/assets/tours/tour4/1.jpg"
+                alt="House"
+              />
+            </div>
+          </div>
+          <!-- actual tours -->
+          <div class="tour hidden" id="tour1">
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour1/photo_12963439-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour1/photo_12963441-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour1/photo_12963442-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour1/photo_12963446-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour1/photo_12963450-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour1/photo_12963457-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour1/photo_12963458-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour1/photo_12963477-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour1/photo_12963484-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour1/photo_12963487-1500x1000.jpg"
+            />
+
+            <button class="slideshow-button tour1 right">></button>
+            <button class="slideshow-button tour1 left"><</button>
+          </div>
+          <div class="tour hidden" id="tour2">
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour2/1.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour2/2.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour2/3.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour2/4.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour2/5.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour2/6.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour2/7.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour2/8.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour2/9.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour2/10.jpg" />
+
+            <button class="slideshow-button tour2 right">></button>
+            <button class="slideshow-button tour2 left"><</button>
+          </div>
+          <div class="tour hidden" id="tour3">
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7729112-1500x1000.jpg"
+            />
+            
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7729109-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7725884-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7725873-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7725872-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7725869-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7725850-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7725848-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7725847-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7725844-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7725840-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour3/photo_7725829-1500x1000.jpg"
+            />
+            <button class="slideshow-button tour3 right">></button>
+            <button class="slideshow-button tour3 left"><</button>
+          </div>
+          <div class="tour hidden" id="tour4">
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour4/1.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour4/2.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour4/3.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour4/4.jpg" />
+            <img class="tour-photo hidden" src="/pictureItSold/assets/tours/tour4/5.jpg" />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour4/photo_9208229-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour4/photo_9208231-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour4/photo_9208234-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour4/photo_9208236-1500x1000.jpg"
+            />
+            <img
+              class="tour-photo hidden"
+              src="/pictureItSold/assets/tours/tour4/photo_9208313-1500x1000.jpg"
+            />
+            <button class="slideshow-button tour4 right">></button>
+            <button class="slideshow-button tour4 left"><</button>
+          </div>
+        </div>
+
+        <!-- Video Tour -->
+        <div class="section">
+          <h3 class="section-title">Video Tour</h3>
+          <div class="video-tour-container">
+            <iframe
+              class="video-tour-thumbnail"
+              src="https://www.youtube.com/embed/MP4WjOAvICc"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section contact" id="contact">
+          <h3 class="section-title">Contact</h3>
+          <p>Let's get in touch and talk about your photography needs.</p>
+          <!-- move this logic to js to avoid redirect -->
+          <form onsubmit="submitContactForm(event)">
+            <input
+              class=""
+              type="text"
+              placeholder="Your Email"
+              required
+              name="emailFrom"
+            />
+
+            <input
+              class=""
+              type="text-area"
+              placeholder="Message"
+              required
+              name="message"
+            />
+            <button class="button" type="submit">SEND</button>
+          </form>
+          <div>Already a customer?</div>
+          <a class="button" href="/pictureItSold/scheduler/index.html"
+            >SCHEDULE AN APPOINTMENT</a
+          >
+
+          <div class="loader hidden"></div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="section footer">
+          <div class="info-button" id="terms-and-conditions-button">
+            Terms and Conditions
+          </div>
+          <a href="/pictureItSold/assets/checklist.pdf">Homeowner Checklist</a>
+          <div class="info-button" id="package-info-button">Packages</div>
+
+          <div class="info hidden" id="package-info">
+            <h3 class="section-title">Packages</h3>
+            <p>
+              Please select a package based on the size of the property. Below
+              is a rough guide to help you select your package.
+              These numbers reflect how many images are normally required to
+              showcase a listing; however, if you want more (or fewer) images,
+              please let us know prior to your shoot. Do you want custom shots
+              or twilight images? Include those as well!
+            </p>
+
+            <table>
+              <tr>
+                <th>Package</th>
+                <th>Number of Images</th>
+                <th>Square Footage</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>0-20</td>
+                <td>1500</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>21-36</td>
+                <td>1501-2800</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>37-50</td>
+                <td>2801-4000</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>51+</td>
+                <td>4001-5500</td>
+              </tr>
+              <tr>
+                <td colspan="3">Custom</td>
+              </tr>
+            </table>
+
+            <p>All fees are due and payable upon delivery of images.</p>
+            <p>
+              Non-Sale Property Shoots (for business promotion/portfolio
+              purposes) are priced differently than our Real Estate for Sale
+              shoots because we license them for long term use.
+            </p>
+          </div>
+          <div class="info hidden" id="terms-and-conditions">
+            <h3 class="section-title">PHOTOGRAPHY LICENSE AGREEMENT</h3>
+            <div class="subtitle">TERMS AND CONDITIONS</div>
+
+            <p>
+              These terms and conditions govern our agreement. Your use of the
+              Products signifies your acceptance of these terms and conditions.
+              The specific Rights of the use of the Products are outlined on
+              Page 1 of this document under: “Terms of the License and Fees”.
+            </p>
+
+            <p>
+              We agree to provide you with the Products. If you have paid us in
+              full, you have the Rights to use the Products. You agree that the
+              Rights to use the Products have been granted only to you. You
+              agree not to transfer, assign or sublicense your Rights to use the
+              Products, or the photographs contained therein, to anyone without
+              our written permission.
+            </p>
+
+            <p>
+              When you receive the Products from us please check them to be sure
+              they are acceptable. Any additional services requested after
+              delivery of the Products may incur additional fees. To avoid
+              misunderstandings you agree to notify us in writing within five
+              (5) business days of receipt of the Products if you believe they
+              are not acceptable, in which case our sole obligation will be to
+              replace the Products. In no event will we be liable for incidental
+              or consequential damages of any kind.
+            </p>
+
+            <p>
+              You agree that we will remain the owner of all the copyrights in
+              the Products. ALL PHOTOGRAPHS ARE THE COPYRIGHT OF THE
+              PHOTOGRAPHER. This agreement does not transfer copyright to you.
+              You agree that we reserve all rights not granted to you by this
+              agreement. If we discover that someone is infringing on our
+              copyright you agree to cooperate with us to help us stop the
+              infringement or collect damages.
+            </p>
+
+            <p>
+              If anyone asks you for any of your Rights to the Products, you
+              agree to refer them to us. If we agree to allow others to use the
+              Products an additional licensing fee may be required. We agree not
+              to use the Products in a way that interferes with your Rights.
+            </p>
+
+            <p>
+              We are an independent contractor and not your employee. You are
+              not our agent and cannot make agreements for us.
+            </p>
+
+            <p>
+              Our fee is payable upon delivery of the Products. If for any
+              reason payment is not made within 30 days from the date of
+              delivery of the Products, the Rights granted to you will terminate
+              automatically.
+            </p>
+
+            <p>
+              Your License to use the Products will automatically terminate when
+              the property is sold or you are no longer the listing agent for
+              the property.
+            </p>
+
+            <p>
+              Picture it Sold! LLC retains the copyright protection of all web
+              pages and digital images. Picture it Sold! LLC reserves the right
+              to use all images for promotion of Picture it Sold! LLC. Only the
+              original REALTOR® who paid for services, has permission to use
+              these images on any electronic or printed form of advertisement
+              for the promotion of that property. Images cannot be altered after
+              they are in your possession. Images cannot be sold, bartered,
+              traded or given by one REALTOR® to another REALTOR® who takes over
+              an expired or withdrawn listing. Failure to pay for the images
+              will result in a copyright infringement/violation. You will be
+              asked to remove the image from any electronic or printed form of
+              advertisement. Failure to stop using them will result in legal
+              action.
+            </p>
+          </div>
+        </footer>
+        <div class="section">
+          <div
+            class="fb-like"
+            data-href="http://www.pictureitsoldwaco.com"
+            data-width="50"
+            data-layout="button_count"
+            data-action="like"
+            data-size="large"
+            data-show-faces="false"
+            data-share="true"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <div id="backdrop" class="hidden"></div>
+    <div id="flash-message" class="hidden"></div>
+  </body>
+  <script type="text/javascript" src="/pictureItSold/index.js"></script>
+</html>

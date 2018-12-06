@@ -1,0 +1,531 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  width: 100vw;
+  max-width: 1100px;
+  letter-spacing: 1px;
+  margin: auto;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+/* ===================nav====================== */
+.nav {
+  width: 100%;
+  height: 5.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+  background: white;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  z-index: 100;
+}
+
+.nav-item {
+  height: 2.5rem;
+}
+
+.nav-icon {
+  height: 100%;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  height: 2.5rem;
+}
+
+.nav-links .link {
+  display: block;
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+.nav-links .link:hover {
+  background: rgba(135, 141, 150, 0.5);
+}
+
+/* ==================header=================== */
+.slideshow {
+  position: relative;
+}
+
+/* fakes box layout with absolute positioning of header images*/
+.filler {
+  width: 100%;
+}
+
+.header-image {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+/* ======================MAIN===================== */
+.main {
+  width: 100%;
+  font-size: 1.27rem;
+  margin: 0;
+  padding: 0;
+}
+
+.section.quote {
+  margin-top: 0;
+  padding-top: 0;
+}
+.section.quote .section-title {
+  margin-top: 0;
+}
+
+.section {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.section-title {
+  border-bottom: 1px solid lightgrey;
+  padding: 1rem 0;
+}
+
+.subtitle {
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+}
+
+.logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.logo-container {
+  width: 45%;
+  height: 33vw;
+  margin: 7px auto;
+  display: inline-block;
+  box-shadow: 2px 1px 1px 1px rgba(0, 0, 0, 0.16);
+}
+
+.logo-container img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  /* for more white space around logo */
+  border: 1rem solid white;
+  margin: auto;
+}
+/* //========================ABOUT===================== */
+
+.services-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+
+.service-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background: rgb(89, 156, 204); */
+}
+
+.service-container h3,
+.service-container p {
+  text-align: center;
+  margin: 0.7rem;
+  font-size: 1rem;
+}
+
+.service-container h3 {
+  font-size: 1.5rem;
+}
+
+.service-icon {
+  width: 27%;
+}
+
+.headshot {
+  width: 73%;
+  max-width: 420px;
+  border-radius: 50%;
+  margin: auto;
+  display: block;
+}
+
+.headshot-caption {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.caption {
+  font-size: 2rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid lightgrey;
+}
+
+.transparent {
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 0;
+}
+/* ====================TOURS============================ */
+.section.tours {
+  position: relative;
+  /* for positioning of tour slider */
+}
+.tour-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.tour-container {
+  position: relative;
+  margin: 0.5rem auto;
+  width: 80%;
+}
+
+.tour-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.27rem 0.73rem;
+  width: 73%;
+  color: white;
+  background: rgb(55, 56, 58);
+  font-size: 0.73rem;
+}
+
+.tour-thumbnail {
+  width: 100%;
+  cursor: pointer;
+}
+
+.tour {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  z-index: 300;
+  width: 80%;
+  height: 54vw;
+  /* height is vw * 80 * the photo h/w ratio */
+}
+
+.tour-photo {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.slideshow-button {
+  position: absolute;
+  width: 2rem;
+  height: 54vw;
+  top: 0;
+  z-index: 400;
+  background-color: rgb(55, 56, 58);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  outline: 0;
+}
+
+.slideshow-button:hover {
+  background-color: rgba(55, 56, 58, 0.2);
+  color: black;
+  cursor: pointer;
+}
+
+.slideshow-button.left {
+  left: -2rem;
+  border-radius: 5px 0 0 5px;
+}
+
+.slideshow-button.right {
+  right: -2rem;
+  border-radius: 0 5px 5px 0;
+}
+
+/* =====================VIDEO TOUR================== */
+
+.video-tour-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+  height: 30vw;
+}
+
+.video-tour-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* =================CONTACT====================== */
+input {
+  width: 100%;
+  padding: 0.73rem 0.73rem;
+  margin: 0.73rem 0;
+  font-size: 1rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.contact {
+  position: relative;
+}
+
+.contact .button {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: rgb(55, 56, 58);
+  font-size: 1rem;
+  padding: 0.73rem;
+  margin: 1.73rem 0;
+  border-radius: 5px;
+}
+
+.contact .button:hover {
+  color: black;
+  background: lightgrey;
+}
+
+/* =====================FOOTER===================== */
+
+.section.footer {
+  border-top: 1px solid lightgrey;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  font-size: 1rem;
+}
+.footer a {
+  text-decoration: none;
+  color: black;
+  margin: 0 0.5rem;
+}
+
+.info-button:hover {
+  cursor: pointer;
+}
+
+#backdrop {
+  background-color: rgba(55, 56, 58, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  z-index: 200;
+}
+
+.info {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  z-index: 300;
+  background: white;
+  padding: 1.5rem;
+  width: 80%;
+  height: 80%;
+  overflow: scroll;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+table {
+  margin: 2rem auto;
+  border: 1px solid lightgrey;
+}
+th,
+td {
+  padding: 0.5rem;
+}
+
+.fb-like {
+  margin: 0 0 2rem 0;
+}
+
+/* ================ANIMATIONS=================== */
+
+.fadeout {
+  display: "none";
+}
+
+.fadein {
+  display: "block";
+}
+
+/* ==================MEDIA========================== */
+@media (min-width: 450px) {
+  /* this is a hack for positioning after linking to sections of page */
+  .section {
+    margin-bottom: 3rem;
+  }
+
+  .nav {
+    height: 4rem;
+    position: fixed;
+  }
+  .nav-links {
+    width: 45%;
+    height: 100%;
+  }
+
+  .service-icon-container {
+    height: 70px;
+  }
+  .service-icon {
+    font-size: 60px;
+    width: 70px;
+  }
+}
+
+@media (min-width: 630px) {
+  body {
+    font-size: 1.33rem;
+  }
+
+  .nav {
+    position: fixed;
+    margin: auto;
+    max-width: 1100px;
+    /* without max-width the nav grows larger than the body. I really wish I knew why */
+    padding: 0.5rem 1rem;
+    background: white;
+    height: 5rem;
+  }
+  .nav-item {
+    height: 100%;
+  }
+  .nav-links {
+    width: 50%;
+    height: 100%;
+  }
+  .nav-links .link {
+    font-size: 2rem;
+    padding: 0 0.7rem;
+  }
+
+  .header {
+    padding-top: 5rem;
+  }
+
+  .section {
+    padding: 0 2rem;
+  }
+
+  .logo-container {
+    width: 30%;
+    height: 15vw;
+    max-height: 200px;
+    margin: 0.5rem auto;
+    position: relative;
+  }
+
+  .logo-container img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .services-container {
+    flex-direction: row;
+  }
+
+  .service-container {
+    height: 100%;
+  }
+
+  .headshot-caption {
+    width: 100%;
+  }
+  .tour-container {
+    width: 47%;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 850px) {
+  .logo-container {
+    width: 23%;
+  }
+}
+
+/* =================LOADER FROM Hw3schools.com========== */
+.loader {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 60px);
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================FLASH MESSAGE============== */
+
+#flash-message {
+  position: fixed;
+  top: calc(40vh);
+  left: calc(50vw - 15rem);
+  width: 30rem;
+  font-size: 1.5rem;
+  background: rgb(89, 156, 204);
+  padding: 1rem;
+  color: white;
+  border-radius: 5px;
+}
