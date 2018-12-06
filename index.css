@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+html,
+body {
+  width: 100vw;
+  margin: 0;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  width: 90%;
+  margin: 1rem auto;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  padding-bottom: 1rem;
+}
+
+.section__title {
+  padding: 1rem 0 0 1rem;
+}
+
+.subsection {
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.subsection div {
+  margin: 1rem 0;
+}
+
+i {
+  margin-right: 0.73rem;
+  color: rgb(97, 135, 198);
+}
+
+.name {
+  height: 20rem;
+  position: relative;
+  background: url("/assets/headshot.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.name h3 {
+  position: absolute;
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  left: 1rem;
+  top: -1rem;
+}
+
+#phil-people-logo {
+  width: 1rem;
+  margin-right: 0.73rem;
+}
+
+li {
+  margin-bottom: 0.73rem;
+}
+
+.dates {
+  color: rgb(97, 135, 198);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: rgb(97, 135, 198);
+}
+
+a:visited {
+  color: grey;
+}
+
+i.scroll-arrow {
+  display: none;
+}
+
+@media (min-width: 700px) {
+  .main-container {
+    flex-direction: row;
+    justify-content: center;
+    max-width: 1400px;
+    padding: 1rem;
+    margin: auto;
+  }
+  .left-panel {
+    width: 40%;
+    max-width: 400px;
+  }
+  .right-panel {
+    position: relative;
+    width: 60%;
+    height: 1060px;
+    overflow: scroll;
+  }
+
+  .section {
+    width: 97%;
+  }
+  i.scroll-arrow {
+    color: rgba(97, 135, 198, 0.5);
+    display: inline;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+  }
+  .spacer {
+    height: 0.28rem;
+  }
+}
+
+footer {
+  height: 8rem;
+  background: rgb(97, 135, 198);
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes blink {
+  from {
+    color: rgba(97, 135, 198, 1);
+  }
+  to {
+    color: rgba(97, 135, 198, 0.1);
+  }
+}
