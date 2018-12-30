@@ -17,33 +17,34 @@ const config = {
       name: "Carol Embry",
       appointmentTimes: ["09:15:00", "10:45:00", "13:15:00"],
       canDoTwilights: true,
-      daysUnavailable: [0], //0 is Sunday, 1 is Monday, etc.
+      daysUnavailable: [], //0 is Sunday, 1 is Monday, etc.
       products: [],
       calendarId: "pictureitsoldwaco@gmail.com",
       email: "pictureitsoldwaco@gmail.com",
       events: [],
-      next: "chris"
+      next: "jana"
     },
     mark: {
       name: "Mark Embry",
-      appointmentTimes: ["09:15:00", "10:45:00", "13:15:00"],
+      appointmentTimes: ["09:15:00", "10:45:00", "13:15:00", "15:45:00"],
       canDoTwilights: false,
-      daysUnavailable: [0, 1, 2, 3, 4, 5],
+      daysUnavailable: [1, 2, 3, 4, 5],
       products: [],
       calendarId: "npsrv5a3nhr1fpn1d2fthukrks@group.calendar.google.com",
       email: "pictureitsoldwaco@gmail.com",
       events: [],
       next: false
     },
-    chris: {
-      name: "Chris Akin",
-      appointmentTimes: ["09:15:00", "10:45:00", "13:15:00"],
-      canDoTwilights: false,
+    jana: {
+      name: "Jana Lumley",
+      appointmentTimes: ["09:00:00", "10:30:00", "13:00:00"],
+      canDoTwilights: true,
+      daysUnavailable: [],
       products: [0],
       calendarId: "vlbpi6bf4mbo09b9plje30au6o@group.calendar.google.com",
       email: "pictureitsoldwaco@gmail.com",
       events: [],
-      next: "mark"
+      next: false
     }
   }
 };
@@ -62,7 +63,6 @@ async function init() {
   let loader = document.querySelector(".loader");
   show(loader);
   await getEvents();
-  populatePhotographerSelect();
   hide(loader);
 }
 
@@ -89,106 +89,80 @@ async function getEvents() {
 }
 
 function populatePhotographerSelect() {
+  //called in handleDateSelect
   let photographerSelector = document.querySelector("#photographer-selector");
-  let photographerKeys = Object.keys(config.photographers);
-  photographerKeys.forEach(key => {
-    let photographerObj = config.photographers[key];
+
+  //clear photographer selector
+  photographerSelector.innerHTML = "";
+
+  //add blank option to force choice
+  let option = document.createElement("option");
+  let text = document.createTextNode("");
+  option.appendChild(text);
+  option.setAttribute("value", null);
+  option.setAttribute("selected", true);
+  photographerSelector.appendChild(option);
+
+  //if product === drone, set option to mark
+  if (appointmentData.description === "drone") {
     let option = document.createElement("option");
-    let text = document.createTextNode(photographerObj.name);
+    let text = document.createTextNode("Mark Embry");
     option.appendChild(text);
-    option.setAttribute("value", key);
+    option.setAttribute("value", "mark");
     photographerSelector.appendChild(option);
-  });
+  } else {
+    //add option "any" for any available photographer
+    option = document.createElement("option");
+    text = document.createTextNode("Any Available");
+    option.appendChild(text);
+    option.setAttribute("value", "any");
+    photographerSelector.appendChild(option);
+
+    //add photographer to options if available on selected day
+    const photographers = Object.keys(config.photographers);
+    const dayOfWeek = new Date(appointmentData.dayOfJob).getDay();
+
+    photographers.forEach(photographer => {
+      let photographerObj = config.photographers[photographer];
+      if (
+        !photographerObj.daysUnavailable.includes(dayOfWeek) &&
+        photographer !== "mark"
+      ) {
+        option = document.createElement("option");
+        text = document.createTextNode(photographerObj.name);
+        option.appendChild(text);
+        option.setAttribute("value", photographer);
+        photographerSelector.appendChild(option);
+      }
+    });
+  }
+}
+
+function appendOption(selector, text, value) {
+  const option = document.createElement("option");
+  const text = document.createTextNode(text);
+  option.appendChild(text);
+  option.setAttribute("value", value);
+  selector.appendChild(option);
 }
 
 //========================HANDLERS====================
 
-function handleMonthIncrement() {
-  appointmentData.dayOfJob = "";
-  monthToShow++;
-
-  if (monthToShow === 12) {
-    monthToShow = 0;
-    yearToShow++;
-  }
-  console.log("month ", monthToShow, " year ", yearToShow);
-  makeCalendar(monthToShow, yearToShow);
-}
-
-function handleMonthDecrement() {
-  appointmentData.dayOfJob = "";
-  monthToShow--;
-  if (monthToShow < 0) {
-    monthToShow = 11;
-    yearToShow--;
-  }
-  makeCalendar(monthToShow, yearToShow);
-}
-
-function handleDateSelect(event) {
-  //remove highlight from previous choice
-  if (appointmentData.dayOfJob) {
-    let previousSelection = document.getElementById(appointmentData.dayOfJob);
-    previousSelection.classList.remove("selected");
-  }
-  appointmentData.dayOfJob = event.currentTarget.id;
-  //add style to selected date;
-  event.currentTarget.classList.add("selected");
-  console.log(appointmentData);
-  let form = document.querySelector("form");
-  form.reset();
-  scrollToStep("2");
-}
-
-async function handlePhotographerSelect(e) {
-  appointmentData[e.currentTarget.name] = e.currentTarget.value;
-  console.log(appointmentData);
-  await getTwilightTime();
-  populateTimeSelector();
-  scrollToStep("3");
-}
-
-function handleTimeSelect(event) {
-  //this isn't used elsewhere, but nice to have I guess
-  appointmentData.startTime = event.currentTarget.value;
-  console.log(appointmentData);
-
-  let timeSelector = document.querySelector("#time-selector");
-  let twilightsRadio = document.querySelector("#twilights");
-  let twilightProductDiv = twilightsRadio.closest("div");
-  //get value of fourth option
-  let twilightOption = document.querySelector("#twilight");
-  if (twilightOption && timeSelector.value === twilightOption.value) {
-    //hide other options
-    let productDivs = document.getElementsByClassName("product");
-    for (let productDiv of productDivs) {
-      let input = productDiv.querySelector("input");
-      if (input.value !== "twilights") {
-        hide(productDiv);
-      }
-    }
-    //select twilight product
-    show(twilightProductDiv);
-    twilightsRadio.click();
-    //scrolls to step 5 on click
-  } else {
-    //show non-twilights products
-    let productDivs = document.getElementsByClassName("product");
-    for (let productDiv of productDivs) {
-      let input = productDiv.querySelector("input");
-      if (input.value !== "twilights") {
-        show(productDiv);
-      }
-    }
-    //hide twilights
-    twilightsRadio.checked = false;
-    twilightProductDiv.classList.remove("product-selected");
-    hide(twilightProductDiv);
-    scrollToStep("4");
-  }
-}
-
 function handleSelectProduct(event) {
+  //reset calendar
+  const selectedDate = document.querySelector(".date.selected");
+  if (selectedDate) {
+    selectedDate.classList.remove("selected");
+  }
+
+  //reset photographer selector
+  const photographerSelector = document.querySelector("#photographer-selector");
+  photographerSelector.innerHTML = "";
+
+  //reset time selector
+  const timeSelector = document.querySelector("#time-selector");
+  timeSelector.innerHTML = "";
+
   //remove selected class from all product divs
   let products = document.getElementsByClassName("product");
   for (let i = 0; i < products.length; i++) {
@@ -203,13 +177,122 @@ function handleSelectProduct(event) {
   }
 
   //find radio button
-  let radio = outerDiv.querySelector("input");
+  const radio = outerDiv.querySelector("input");
   radio.checked = true;
-  appointmentData.description += radio.value;
+
+  //add product description to appointmentData
+  appointmentData.description = radio.value;
   console.log(appointmentData);
+
   //add selected class to outerdiv
   outerDiv.classList.add("product-selected");
-  scrollToStep("5");
+
+  //make dates available based on selection
+  makeDatesAvailable();
+  scrollToStep("2");
+}
+
+function makeDatesAvailable() {
+  //add click listener to weekday squares later than today
+  let dates = document.getElementsByClassName("date");
+  if (!appointmentData.description) {
+    return null;
+  }
+  //make dates available for days past today
+  for (let i = 0; i < dates.length; i++) {
+    let date = new Date(dates[i].id);
+    if (dates[i].id && date.getTime() > new Date().getTime()) {
+      dates[i].onclick = handleDateSelect;
+      dates[i].classList.add("availableDay");
+    }
+    //make cal dates unavailable if product === drone and mark is unavailable
+    if (appointmentData.description === "drone" && markIsUnavailableOn(date)) {
+      dates[i].onclick = null;
+      dates[i].classList.remove("availableDay");
+    }
+  }
+}
+
+function markIsUnavailableOn(date) {
+  const dayOfWeek = date.getDay();
+  const daysUnavailable = config.photographers.mark.daysUnavailable;
+  if (daysUnavailable.includes(dayOfWeek)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function handleMonthIncrement(event) {
+  //stop form from submitting
+  event.preventDefault();
+  appointmentData.dayOfJob = "";
+  monthToShow++;
+
+  if (monthToShow === 12) {
+    monthToShow = 0;
+    yearToShow++;
+  }
+  console.log("month ", monthToShow, " year ", yearToShow);
+  makeCalendar(monthToShow, yearToShow);
+  makeDatesAvailable();
+}
+
+function handleMonthDecrement() {
+  //stop form from submitting
+  event.preventDefault();
+  appointmentData.dayOfJob = "";
+  monthToShow--;
+  if (monthToShow < 0) {
+    monthToShow = 11;
+    yearToShow--;
+  }
+  makeCalendar(monthToShow, yearToShow);
+  makeDatesAvailable();
+}
+
+function handleDateSelect(event) {
+  //remove highlight from previous choice
+  if (appointmentData.dayOfJob) {
+    let previousSelection = document.getElementById(appointmentData.dayOfJob);
+    previousSelection.classList.remove("selected");
+  }
+
+  //set appointment data
+  appointmentData.dayOfJob = event.currentTarget.id;
+
+  //add style to selected date;
+  event.currentTarget.classList.add("selected");
+  console.log(appointmentData);
+  populatePhotographerSelect();
+  scrollToStep("3");
+}
+
+async function handlePhotographerSelect(e) {
+  console.log("handling photographer select");
+  appointmentData[e.currentTarget.name] = e.currentTarget.value;
+  console.log(appointmentData);
+  await getTwilightTime();
+  populateTimeSelector();
+  scrollToStep("4");
+}
+
+function handleTimeSelect(event) {
+  //this isn't used elsewhere, but nice to have I guess
+  appointmentData.startTime = event.currentTarget.value;
+  console.log("from handleTimeSelect ", appointmentData);
+  if (appointmentData.description === "drone") {
+    //disable add-ons
+    const addOns = document.querySelectorAll(".add-on-input");
+    for (let addOn of addOns) {
+      addOn.setAttribute("disabled", true);
+    }
+    const addOnDiv = document.querySelector(".add-ons");
+    addOnDiv.classList.add("disabled");
+    scrollToStep("6");
+  } else {
+    scrollToStep("5");
+  }
 }
 
 function scrollToStep(n) {
@@ -274,7 +357,7 @@ function makeCalendar(monthIndex = monthToShow, year = yearToShow) {
 
   day.setFullYear(year, monthIndex, date);
 
-  //add squares to cal grid
+  //add squares (6X7) to cal grid
   for (let i = 0; i < 6; i++) {
     for (let j = 0; j < 7; j++) {
       square = document.createElement("div");
@@ -289,21 +372,6 @@ function makeCalendar(monthIndex = monthToShow, year = yearToShow) {
         day.setDate(date);
       }
       calGrid.appendChild(square);
-    }
-  }
-
-  //add click listener to weekday squares later than today
-  let dates = document.getElementsByClassName("date");
-
-  for (let i = 0; i < dates.length; i++) {
-    let date = new Date(dates[i].id);
-    if (
-      dates[i].id &&
-      date.getTime() > new Date().getTime() &&
-      date.getDay() !== 0
-    ) {
-      dates[i].onclick = handleDateSelect;
-      dates[i].classList.add("availableDay");
     }
   }
 
@@ -331,6 +399,10 @@ function makeCalendar(monthIndex = monthToShow, year = yearToShow) {
 //===================================================
 async function getAvailableTimes(photographer) {
   console.log("the photographer is ", photographer);
+  if (photographer === false) {
+    flash("No photographers are available that day. Please pick another day.");
+    return null;
+  }
   const dayOfJob = new Date(appointmentData.dayOfJob).getTime();
   const nextDay = dayOfJob + 1000 * 60 * 60 * 24;
   const timezoneOffsetWaco = getWacoOffset(new Date(dayOfJob));
@@ -343,6 +415,7 @@ async function getAvailableTimes(photographer) {
     photographerObj = config.photographers[photographer];
   }
   console.log("the photographer object is ", photographerObj);
+
   appointmentData.calendarId = photographerObj.calendarId;
   appointmentData.emailTo = photographerObj.email;
 
@@ -362,12 +435,11 @@ async function getAvailableTimes(photographer) {
   );
   console.log("event times for " + photographer, eventTimes);
 
-  //filter available times for times that do not overlap event times
-  let availableTimes = [...photographerObj.appointmentTimes];
-
-  //add twilight time
-  if (photographerObj.canDoTwilights) {
-    availableTimes.push("Twilight");
+  let availableTimes;
+  if (appointmentData.description === "twilights") {
+    availableTimes = ["Twilight"];
+  } else {
+    availableTimes = [...photographerObj.appointmentTimes];
   }
 
   //map to an object: {localTimeString: "", timeInMs: ""}
@@ -417,6 +489,8 @@ async function getAvailableTimes(photographer) {
 }
 
 async function getTwilightTime() {
+  //called when photographer is selected
+  //twilightInMs is a global variable
   console.log("getting twilight time...");
   const sunsetResponse = await fetch(
     "https://api.sunrise-sunset.org/json?lat=31.5493&lng=-97.1467&date=" +
@@ -430,10 +504,11 @@ async function getTwilightTime() {
 }
 
 async function populateTimeSelector() {
+  console.log("getting available times for photographer");
   let availableTimes = await getAvailableTimes(appointmentData.photographer);
   console.log("available times from populate fn ", availableTimes);
   if (!availableTimes) {
-    scrollToStep("2");
+    scrollToStep("3");
     return;
   }
 
@@ -476,6 +551,7 @@ async function handleSubmit(event) {
     startTime: "",
     endTime: "",
     description: "",
+    addOns: "",
     emailTo: ""
   };
 

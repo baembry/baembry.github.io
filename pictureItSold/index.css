@@ -233,7 +233,7 @@ h3 {
 
 .tour {
   position: fixed;
-  top: 10%;
+  top: 5%;
   left: 10%;
   z-index: 300;
   width: 80%;
@@ -250,7 +250,7 @@ h3 {
 .slideshow-button {
   position: absolute;
   width: 2rem;
-  height: 54vw;
+  height: 53vw;
   top: 0;
   z-index: 400;
   background-color: rgb(55, 56, 58);
@@ -378,8 +378,13 @@ td {
   padding: 0.5rem;
 }
 
-.fb-like {
-  margin: 0 0 2rem 0;
+.section.flex {
+  display: flex;
+  align-items: flex-end;
+}
+.footer__badge {
+  height: 4rem;
+  margin: 0 1rem 0 0;
 }
 
 /* ================ANIMATIONS=================== */

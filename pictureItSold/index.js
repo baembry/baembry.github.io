@@ -58,17 +58,18 @@ slideshow("header-image");
 // ===================Main Slideshow=================
 function slideshow(className) {
   const images = document.getElementsByClassName(className);
-  var current = 1;
-  var previous = 0;
-  //images[previous].style.opacity = "1";
+  var current = Math.floor(Math.random() * images.length);
+  images[current].style.opacity = "1";
+  var previous;
   function move() {
-    images[previous].style.opacity = "0";
-    images[current].style.opacity = "1";
     previous = current;
     current++;
     if (current === images.length) {
       current = 0;
     }
+    images[previous].style.opacity = "0";
+    images[current].style.opacity = "1";
+
     setTimeout(move, 5000);
   }
   setTimeout(move, 5000);

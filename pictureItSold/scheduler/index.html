@@ -3,69 +3,31 @@
   <title>Picture It Sold! Scheduler</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/pictureItSold/scheduler/index.css" />
+  <link rel="stylesheet" href="/scheduler/index.css" />
   <link
     href="https://fonts.googleapis.com/css?family=Oswald"
     rel="stylesheet"
   />
-  <link rel="icon" type="image/png" href="/pictureItSold/assets/PISfavicon.png" />
+  <link rel="icon" type="image/png" href="/assets/PISfavicon.png" />
 
   <body>
     <div class="main-content">
       <div class="banner">
-        <a href="/pictureItSold/index.html"
+        <a href="/index.html"
           ><img
             class="logo"
-            src="/pictureItSold/assets/pis-logo.jpg"
+            src="/assets/pis-logo.jpg"
             alt="Picture it Sold Logo"
         /></a>
       </div>
-      <h2 class="section-title" id="step1">Step 1: Pick a date</h2>
-      <p>Warning: This scheduler is not yet in service. To schedule an appointment, visit www.pictureitsoldwaco.com.</p>
-      <div class="calendar">
-        <div class="calendar-title">
-          <button onclick="handleMonthDecrement()"><</button>
-          <div class="month"></div>
-          <button onclick="handleMonthIncrement()">></button>
-        </div>
-
-        <div class="days-of-the-week">
-          <div class="day su">Su</div>
-          <div class="day m">M</div>
-          <div class="day t">Tu</div>
-          <div class="day w">W</div>
-          <div class="day tr">Tr</div>
-          <div class="day f">F</div>
-          <div class="day sa">Sa</div>
-        </div>
-        <div class="dates"></div>
-      </div>
-      <div class="warnings">
-        <p>All bookings are provisional until confirmed.</p>
-        <p>Saturdays are subject to a $50 surcharge.</p>
-      </div>
+      
 
       <!-- ============selectors======================= -->
 
       <form id="form" onsubmit="handleSubmit(event)">
-        <h2 class="section-title" id="step2">Step 2: Pick a photographer</h2>
-        <select
-          name="photographer"
-          id="photographer-selector"
-          onchange="handlePhotographerSelect(event)"
-        >
-          <option value="" disabled selected></option>
-          <option value="any">Any available</option>
-        </select>
-        <h2 class="section-title" id="step3">Step 3: Pick a time</h2>
-        <select
-          id="time-selector"
-          name="startTime"
-          onchange="handleTimeSelect(event)"
-          required
-          ></option
-        ></select>
-        <h2 class="section-title" id="step4">Step 4: Pick a product</h2>
+
+<!--=======================PICK PRODUCT======================== -->
+        <h2 class="section-title" id="step1">Step 1: Pick a product</h2>
         <div class="product" onclick="handleSelectProduct(event)">
           <input
             type="radio"
@@ -76,7 +38,7 @@
           />
           <div>Photoshoot 1</div>
           <div class="product-description">
-            Up to 1500 s.f. properties. Up to 20 images.
+            Up to 1500 s.f. properties. Up to 15 images.
           </div>
         </div>
         <div class="product" onclick="handleSelectProduct(event)">
@@ -85,12 +47,12 @@
             name="product"
             id="photoshoot2"
             value="photoshoot2"
-            onclick="scrollToStep('5')"
+            onclick="scrollToStep('2')"
           />
           <label for="photoshoot2">
-            Photoshoot 2 <span class="time-note">(1 hour)</span>
+            Photoshoot 2 
             <div class="product-description">
-              1500-2799 s.f. properties. Up to 35 digitally enhanced images.
+              1500-2500 s.f. properties. Up to 35 digitally enhanced images.
             </div>
           </label>
         </div>
@@ -100,12 +62,12 @@
             name="product"
             id="photoshoot3"
             value="photoshoot3"
-            onclick="scrollToStep('5')"
+            onclick="scrollToStep('2')"
           />
           <label for="photoshoot3">
-            Photoshoot 3 <span class="time-note">(1 hour)</span>
+            Photoshoot 3 
             <div class="product-description">
-              2800-3999 s.f. properties. Up to 45 digitally enhanced images.
+              2501-3500 s.f. properties. Up to 45 digitally enhanced images.
             </div>
           </label>
         </div>
@@ -115,12 +77,12 @@
             name="product"
             id="photoshoot4"
             value="photoshoot4"
-            onclick="scrollToStep('5')"
+            onclick="scrollToStep('2')"
           />
           <label for="photoshoot4">
-            Photoshoot 4 <span class="time-note">(1 hour 30 minutes)</span>
+            Photoshoot 4 
             <div class="product-description">
-              4000-5000 s.f. properties. Up to 60 digitally enhanced images.
+              3501-4500 s.f. properties. Up to 55 digitally enhanced images.
             </div>
           </label>
         </div>
@@ -130,10 +92,10 @@
             name="product"
             id="over5000sf"
             value="over5000sf"
-            onclick="scrollToStep('5')"
+            onclick="scrollToStep('2')"
           />
           <label for="over5000sf">
-            Over 5000 s.f. <span class="time-note">(2 hours)</span>
+            Over 5000 s.f. 
             <div class="product-description"></div>
           </label>
         </div>
@@ -143,12 +105,13 @@
             name="product"
             id="drone"
             value="drone"
-            onclick="scrollToStep('5')"
+            onclick="scrollToStep('2')"
           />
           <label for="drone">
-            Drone aerial stills/video <span class="time-note">(2 hours)</span>
+            Drone aerial stills/video 
             <div class="product-description">
-              Discounted when booked with a photo package!
+              Discounted when you also book a photo package (booked separately)!
+              Currently available on weekends only
             </div>
           </label>
         </div>
@@ -158,10 +121,10 @@
             name="product"
             id="farm"
             value="farm"
-            onclick="scrollToStep('5')"
+            onclick="scrollToStep('2')"
           />
           <label for="farm">
-            Farm or Ranch <span class="time-note"></span>
+            Farm or Ranch 
             <div class="product-description">
               Billed at $155 per hour on property.
             </div>
@@ -173,10 +136,10 @@
             name="product"
             id="reshootInteriors"
             value="reshoot interiors"
-            onclick="scrollToStep('5')"
+            onclick="scrollToStep('2')"
           />
           <label for="reshootInteriors">
-            Reshoot Interiors <span class="time-note">(1 hour)</span>
+            Reshoot Interiors 
             <div class="product-description">
               Appropriate after painting, repairs, or new decorations.
             </div>
@@ -188,10 +151,10 @@
             name="product"
             id="reshootExteriors"
             value="reshoot exteriors"
-            onclick="scrollToStep('5')"
+            onclick="scrollToStep('2')"
           />
           <label for="reshootExteriors">
-            Reshoot Exteriors <span class="time-note">(1 hour)</span>
+            Reshoot Exteriors 
             <div class="product-description">
               Appropriate after painting, repairs, or new decorations.
             </div>
@@ -203,10 +166,10 @@
             name="product"
             id="frontElevation"
             value="front elevation"
-            onclick="scrollToStep('5')"
+            onclick="scrollToStep('2')"
           />
           <label for="frontElevation">
-            Front Elevation <span class="time-note">(30 minutes)</span>
+            Front Elevation 
             <div class="product-description">
               Typically for properties "coming soon" to the market.
             </div>
@@ -218,10 +181,10 @@
             name="product"
             id="headShots"
             value="head shots"
-            onclick="scrollToStep('5')"
+            onclick="scrollToStep('2')"
           />
           <label for="headShots"
-            >Headshots <span class="time-note">(1 hour)</span>
+            >Headshots 
             <div class="product-description">
               $150 for one person and $50 for each additional person. $10
               surcharge for two-headed persons.
@@ -234,15 +197,112 @@
             name="product"
             id="twilights"
             value="twilights"
-            onclick="scrollToStep('5')"
+            onclick="scrollToStep('2')"
           />
           <label for="twilights"
             >Twilights
             <span class="time-note">(30 minutes prior to sunset)</span>
-            <div class="product-description">Up to 10 images.</div>
+            <div class="product-description">Up to 10 images. Discounted when booked with a photo package as an add-on.</div>
           </label>
         </div>
-        <h2 class="section-title" id="step5">Step 5: Provide Details</h2>
+
+<!--=======================PICK DATE======================== -->
+
+
+<h2 class="section-title" id="step2">Step 2: Pick a date</h2>
+
+<div class="calendar">
+  <div class="calendar-title">
+    <button onclick="handleMonthDecrement(event)"><</button>
+    <div class="month"></div>
+    <button onclick="handleMonthIncrement(event)">></button>
+  </div>
+
+  <div class="days-of-the-week">
+    <div class="day su">Su</div>
+    <div class="day m">M</div>
+    <div class="day t">Tu</div>
+    <div class="day w">W</div>
+    <div class="day tr">Tr</div>
+    <div class="day f">F</div>
+    <div class="day sa">Sa</div>
+  </div>
+  <div class="dates"></div>
+</div>
+<div class="warnings">
+  <p>All bookings are provisional until confirmed.</p>
+  <p>Saturdays are subject to a $50 surcharge.</p>
+  <p>Sundays are subject to a $75 surcharge.</p>
+</div>
+
+<!--=======================PICK PHOTOGRAPHER======================== -->
+
+
+        <h2 class="section-title" id="step3">Step 3: Pick a photographer</h2>
+        <select
+          name="photographer"
+          id="photographer-selector"
+          onchange="handlePhotographerSelect(event)"
+        >
+          <option value="" disabled selected></option>
+          <option value="any">Any available</option>
+        </select>
+
+
+        
+
+<!--=======================PICK TIME======================== -->
+
+
+        <h2 class="section-title" id="step4">Step 4: Pick a time</h2>
+        <select
+          id="time-selector"
+          name="startTime"
+          onchange="handleTimeSelect(event)"
+          required
+          ></option
+        ></select>
+
+ <!--=======================PICK ADD-ONS======================== -->
+
+        <h2 class="section-title" id="step5">Step 5: Select add-ons</h2>
+        <div class="form-section add-ons">
+          <h3>Add-Ons</h3>
+          <div class = "add-ons">
+          <div>
+          <input type = "checkbox" class="add-on-input" name="add-ons" value = "Visual Tour">Visual Tour (slideshow with music and visitor stats)
+        </div>
+        <div>
+          <input type = "checkbox" class="add-on-input" name="add-ons" value = "Video Clip">Video Clip Added to Slideshow
+        </div>
+        <div>
+          <input type = "checkbox" class="add-on-input" name="add-ons" value = "Domain Name">Domain Name for Visual Tour
+        </div>
+        <div>
+          <input type = "checkbox" class="add-on-input" name="add-ons" value = "YouTube Video">YouTube Video from Slideshow
+        </div>
+        <div>
+          <input type = "checkbox" class="add-on-input" name = "add-ons" value = "item-removal">Photoshop: Item Removal
+        </div>
+        <div>
+          <input type = "checkbox" class="add-on-input" name="add-ons" value = "Replace Grass">Green Grass Replacement
+        </div>
+        <div>
+          <input type = "checkbox" class="add-on-input" name="add-ons" value = "Replace Sky">Blue Sky Replacement
+        </div>
+        <div>
+          <input type = "checkbox" class="add-on-input" name="add-ons" value = "Virtual Stagine">Virtual Staging
+        </div>
+        <div>
+          <input type = "checkbox" class="add-on-input" name="add-ons" value = "Twilights">Twilight/Night Shots
+        </div>
+        </div>
+      </div>
+
+
+<!--=======================PROVIDE DETAILS======================== -->
+
+        <h2 class="section-title" id="step6">Step 6: Provide Details</h2>
         <div class="form-section customerDetails">
           <h3>Customer Details</h3>
           <div class="input-group">
@@ -366,6 +426,7 @@
           </div>
         </div>
         <p>Your appointment is provisional until confirmed.</p>
+        <p>Photos are deliverable upon payment.</p>
         <input
           id="password"
           type="password"
@@ -379,6 +440,6 @@
       <div class="loader hidden"></div>
       <div id="flash-message" class="hidden"></div>
     </div>
-    <script type="text/javascript" src="/pictureItSold/scheduler/index.js"></script>
+    <script type="text/javascript" src="index.js"></script>
   </body>
 </html>

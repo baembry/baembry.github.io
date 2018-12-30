@@ -150,6 +150,10 @@ body {
   display: block;
 }
 
+.add-on-input {
+  margin-right: 1rem;
+}
+
 /* ===================GADGETS==================== */
 input[type="text"],
 input[type="password"],
