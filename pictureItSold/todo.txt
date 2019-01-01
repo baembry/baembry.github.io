@@ -1,4 +1,4 @@
 -refactor data fire events.list to use query parameters to avoid hard coding the options
 
-make drone video available only on weekends
-make sure jana's times are right
+add photographer emails
+refactor data.email

@@ -6,7 +6,8 @@ var appointmentData = {
   description: "",
   summary: "",
   location: "",
-  emailTo: ""
+  customerEmail: "",
+  photographerEmail: ""
 };
 
 const config = {
@@ -75,7 +76,7 @@ async function getEvents() {
   try {
     for (let photographer of photographers) {
       let res = await fetch(
-        "http://picture-it-sold.prod.with-datafire.io/events/" + photographer,
+        "https://picture-it-sold.prod.with-datafire.io/events/" + photographer,
         params
       );
       let appointmentData = await res.json();
@@ -136,14 +137,6 @@ function populatePhotographerSelect() {
       }
     });
   }
-}
-
-function appendOption(selector, text, value) {
-  const option = document.createElement("option");
-  const text = document.createTextNode(text);
-  option.appendChild(text);
-  option.setAttribute("value", value);
-  selector.appendChild(option);
 }
 
 //========================HANDLERS====================
@@ -270,7 +263,7 @@ function handleDateSelect(event) {
 
 async function handlePhotographerSelect(e) {
   console.log("handling photographer select");
-  appointmentData[e.currentTarget.name] = e.currentTarget.value;
+  appointmentData.photographer = e.currentTarget.value;
   console.log(appointmentData);
   await getTwilightTime();
   populateTimeSelector();
@@ -417,7 +410,7 @@ async function getAvailableTimes(photographer) {
   console.log("the photographer object is ", photographerObj);
 
   appointmentData.calendarId = photographerObj.calendarId;
-  appointmentData.emailTo = photographerObj.email;
+  appointmentData.photographerEmail = photographerObj.email;
 
   const events = photographerObj.events;
 
@@ -545,36 +538,44 @@ async function handleSubmit(event) {
 
   let data = {
     calendarId: "",
-    email: "",
+    customerEmail: "",
     summary: "",
     location: "",
     startTime: "",
     endTime: "",
     description: "",
     addOns: "",
-    emailTo: ""
+    photographerEmail: ""
   };
 
   let startTimeInMs = parseInt(appointmentData.startTime);
   //populate data object
   data.calendarId = appointmentData.calendarId;
-  data.email = document.querySelector("#email").value;
-  data.summary = document.querySelector('input[name="product"]:checked').value;
+  data.customerEmail = document.querySelector("#email").value;
+  data.summary = document.querySelector('input[name="Product"]:checked').value;
   data.location = document.querySelector("#address").value;
-  data.startTime = new Date(startTimeInMs).toISOString();
+
+  data.startTime = new Date(startTimeInMs).toISOString(); //required format for google calendar API
   data.endTime = new Date(startTimeInMs + 1000 * 60 * 60 * 2).toISOString();
-  data.emailTo = appointmentData.emailTo;
+  data.photographerEmail = appointmentData.photographerEmail;
 
   //make description
   const form = document.querySelector("form");
   const formData = new FormData(form);
 
   for (let pair of formData.entries()) {
-    data.description += `<h3>${pair[0]}</h3><p>${pair[1]}</p>`;
+    if (pair[0] !== "startTime") {
+      data.description += `<h3>${pair[0]}</h3><p>${pair[1]}</p>`;
+    } else {
+      data.description += `<h3>Start Time</h3><p>${new Date(
+        data.startTime
+      )}</p>`;
+    }
   }
   console.log("data to send ", data);
 
   try {
+    console.log("getting calendar response...");
     let calendarResponse = await fetch(config.baseUrl + "/events", {
       method: "POST",
       headers: {
@@ -582,10 +583,47 @@ async function handleSubmit(event) {
       },
       body: JSON.stringify(data)
     });
-    let emailResponse = await sendEmail(data);
+    console.log(calendarResponse);
+
+    //send email to photographer
+    console.log("getting pis response...");
+    let emailSubject = `New appointment from ${data.photographerEmail}`;
+    let emailMessage = data.description;
+    const photographerEmailResponse = await sendEmail(
+      data.customerEmail,
+      data.photographerEmail,
+      emailSubject,
+      emailMessage
+    );
+    const pisEmailResponse = await sendEmail(
+      data.customerEmail,
+      "pictureItSoldWaco@gmail.com",
+      emailSubject,
+      emailMessage
+    );
+    console.log(pisEmailResponse);
+
+    //send confirmation to customer
+    console.log("getting customer email response...");
+    emailSubject = `Appointment confirmation from Picture It Sold!`;
+    emailMessage =
+      `<h3>This email confirms your real estate photography appointment with Picture It Sold.</h3><h4>Appointment details are below</h4>` +
+      data.description;
+    const customerEmailResponse = await sendEmail(
+      "pictureItSoldWaco@gmail.com",
+      data.customerEmail,
+      emailSubject,
+      emailMessage
+    );
+    console.log(customerEmailResponse);
 
     hide(loader);
-    if (calendarResponse < 400 || emailResponse < 400) {
+    if (
+      calendarResponse >= 400 ||
+      photographerEmailResponse >= 400 ||
+      customerEmailResponse >= 400 ||
+      pisEmailResponse >= 400
+    ) {
       flash(
         "Sorry. Something went wrong with creating your event. Please call Carol directly to make your appointment."
       );
@@ -599,18 +637,19 @@ async function handleSubmit(event) {
       window.location.assign("http://127.0.0.1:5500/assets/checklist.pdf");
     }, 4000);
   } catch (error) {
+    hide(loader);
     flash(error.message);
   }
 }
 
 //=======================HTTP===================
-async function sendEmail(data) {
+async function sendEmail(emailFrom, emailTo, subject, message) {
   let email = {};
-  email.subject = `New appointment from ${data.email}`;
-  email.emailFrom = data.email;
-  email.emailTo = data.emailTo;
-  email.message = data.description;
+  email.subject = subject;
+  email.emailFrom = emailFrom;
+  email.message = message;
 
+  email.emailTo = emailTo;
   let response = await fetch(config.baseUrl + "/messages", {
     method: "POST",
     headers: {

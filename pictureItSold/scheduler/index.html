@@ -3,7 +3,7 @@
   <title>Picture It Sold! Scheduler</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/pictureItSold/scheduler/index.css" />
+  <link rel="stylesheet" href="pictureItSold/scheduler/index.css" />
   <link
     href="https://fonts.googleapis.com/css?family=Oswald"
     rel="stylesheet"
@@ -13,10 +13,10 @@
   <body>
     <div class="main-content">
       <div class="banner">
-        <a href="/pictureItSold/index.html"
+        <a href="pictureItSold/index.html"
           ><img
             class="logo"
-            src="/pictureItSold/assets/pis-logo.jpg"
+            src="/assets/pis-logo.jpg"
             alt="Picture it Sold Logo"
         /></a>
       </div>
@@ -31,15 +31,16 @@
         <div class="product" onclick="handleSelectProduct(event)">
           <input
             type="radio"
-            name="product"
+            name="Product"
             id="photoshoot1"
             value="photoshoot1"
             required
           />
-          <div>Photoshoot 1</div>
+          <label for = "photoshoot1">Photoshoot 1
           <div class="product-description">
             Up to 1500 s.f. properties. Up to 15 images.
           </div>
+        </label>
         </div>
         <div class="product" onclick="handleSelectProduct(event)">
           <input
@@ -240,7 +241,7 @@
 
         <h2 class="section-title" id="step3">Step 3: Pick a photographer</h2>
         <select
-          name="photographer"
+          name="Photographer"
           id="photographer-selector"
           onchange="handlePhotographerSelect(event)"
         >
@@ -265,7 +266,7 @@
 
  <!--=======================PICK ADD-ONS======================== -->
 
-        <h2 class="section-title" id="step5">Step 5: Select additional services</h2>
+        <h2 class="section-title" id="step5">Step 5: Select add-ons</h2>
         <div class="form-section add-ons">
           <h3>Add-Ons</h3>
           <div class = "add-ons">
@@ -291,7 +292,7 @@
           <input type = "checkbox" class="add-on-input" name="add-ons" value = "Replace Sky">Blue Sky Replacement
         </div>
         <div>
-          <input type = "checkbox" class="add-on-input" name="add-ons" value = "Virtual Stagine">Virtual Staging
+          <input type = "checkbox" class="add-on-input" name="add-ons" value = "Virtual Staging">Virtual Staging
         </div>
         <div>
           <input type = "checkbox" class="add-on-input" name="add-ons" value = "Twilights">Twilight/Night Shots
@@ -326,21 +327,21 @@
             />
           </div>
           <div class="input-group">
-            <label for="phone">Phone Number</label>
+            <label for="Phone">Phone Number</label>
             <input
               type="tel"
               id="phone"
-              name="phone"
+              name="Phone"
               placeholder="Phone Number"
               required
             />
           </div>
           <div class="input-group">
-            <label for="email">Email</label>
+            <label for="Customer Email">Email</label>
             <input
               type="email"
               id="email"
-              name="email"
+              name="Customer Email"
               placeholder="Email"
               required
             />
@@ -350,11 +351,11 @@
           <h3>Property Details</h3>
           <div class="input-group">
             <label for="address">Address</label>
-            <input id="address" type="text" name="address" required />
+            <input id="address" type="text" name="Address" required />
           </div>
           <div class="input-group">
             <label for="kindOfProperty">Kind of Property</label>
-            <select name="kind of property" id="kindOfProperty" required>
+            <select name="Kind of Property" id="kindOfProperty" required>
               <option value="single family home">Single Family Home</option>
               <option value="Farm or Ranch">Farm or Ranch</option>
               <option value="Apartment or Condo">Apartment or Condo</option>
@@ -363,8 +364,8 @@
             </select>
           </div>
           <div class="input-group">
-            <label for="occupied">This property is: </label>
-            <select name="occupied" id="occupied" required>
+            <label for="Occupied">This property is: </label>
+            <select name="Occupied" id="occupied" required>
               <option value="Owner occupied">Owner Occupied</option>
               <option value="Tenant occupied">Tenant Occupied</option>
               <option value="Vacant">Vacant</option>
@@ -375,7 +376,7 @@
             <input
               type="text"
               id="squareFootage"
-              name="square footage"
+              name="Square Footage"
               placeholder=""
               required
             />
@@ -385,7 +386,7 @@
             <input
               type="text"
               id="bedrooms"
-              name="bedrooms"
+              name="Bedrooms"
               placeholder=""
               required
             />
@@ -395,7 +396,7 @@
             <input
               type="text"
               id="fullBathrooms"
-              name="full bathrooms"
+              name="Full Bathrooms"
               placeholder=""
               required
             />
@@ -405,14 +406,14 @@
             <input
               type="text"
               id="halfBathrooms"
-              name="half bathrooms"
+              name="Half Bathrooms"
               placeholder=""
               required
             />
           </div>
           <div class="input-group">
             <label for="accessInfo">Access Information</label>
-            <select name="access info" id="accessInfo">
+            <select name="Access Info" id="accessInfo">
               <option value="Agent will be there">Agent will be there</option>
               <option value="Agent will arrange for key"
                 >Agent will arrange for a key</option
@@ -425,7 +426,6 @@
             </select>
           </div>
         </div>
-        <p>Your appointment is provisional until confirmed.</p>
         <p>Photos are deliverable upon payment.</p>
         <input
           id="password"
