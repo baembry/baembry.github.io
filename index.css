@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 html,
@@ -43,7 +43,7 @@ i {
 .name {
   height: 20rem;
   position: relative;
-  background: url("/assets/headshot.jpg");
+  background: url('/assets/headshot.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -101,7 +101,7 @@ i.scroll-arrow {
   .right-panel {
     position: relative;
     width: 60%;
-    height: 1060px;
+    height: 1500px;
     overflow: scroll;
   }
 

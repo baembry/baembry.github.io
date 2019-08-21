@@ -1,0 +1,165 @@
+
+<!-- saved from url=(0119)file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Mocha Tests</title>
+    <link rel="stylesheet" href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/lib/mocha/mocha.css">
+    <script src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/lib/jquery/jquery.js"></script>
+    <script src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/lib/mocha/mocha.js"></script>
+    <script src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/lib/chai/chai.js"></script>
+    <script src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/lib/underscore/underscore.js"></script>
+    <script>
+      mocha.setup('bdd');
+      window.expect = chai.expect;
+      $(function() {
+        window.mochaPhantomJS ? mochaPhantomJS.run() : mocha.run();
+      })
+    </script>
+
+    <!-- source files -->
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/src/linkedList.js"></script>
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/src/tree.js"></script>
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/src/graph.js"></script>
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/src/set.js"></script>
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/src/hashTableHelpers.js"></script>
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/src/hashTable.js"></script>
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/src/binarySearchTree.js"></script>
+
+
+    <!-- spec files -->
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/spec/linkedListSpec.js"></script>
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/spec/treeSpec.js"></script>
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/spec/graphSpec.js"></script>
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/spec/setSpec.js"></script>
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/spec/hashTableSpec.js"></script>
+    <script type="text/javascript" src="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/spec/binarySearchTreeSpec.js"></script>
+
+  </head>
+  <body style="">
+    <div id="mocha"><ul id="mocha-stats"><li class="progress"><canvas width="40" height="40" style="width: 40px; height: 40px;"></canvas></li><li class="passes"><a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html#">passes:</a> <em>36</em></li><li class="failures"><a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html#">failures:</a> <em>1</em></li><li class="duration">duration: <em>0.05</em>s</li></ul><ul id="mocha-report"><li class="suite"><h1><a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=linkedList">linkedList</a></h1><ul><li class="test pass fast"><h2>should have a head and tail<span class="duration">1ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=linkedList%20should%20have%20a%20head%20and%20tail" class="replay">‣</a></h2><pre style="display: none;"><code>expect(linkedList).to.have.property("head");
+expect(linkedList).to.have.property("tail");</code></pre></li><li class="test pass fast"><h2>should have methods named "addToTail", "removeHead", and "contains"<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=linkedList%20should%20have%20methods%20named%20%22addToTail%22%2C%20%22removeHead%22%2C%20and%20%22contains%22" class="replay">‣</a></h2><pre style="display: none;"><code>expect(linkedList.addToTail).to.be.a("<span class="keyword">function</span>");
+expect(linkedList.removeHead).to.be.a("<span class="keyword">function</span>");
+expect(linkedList.contains).to.be.a("<span class="keyword">function</span>");</code></pre></li><li class="test pass fast"><h2>should designate a new tail when new nodes are added<span class="duration">3ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=linkedList%20should%20designate%20a%20new%20tail%20when%20new%20nodes%20are%20added" class="replay">‣</a></h2><pre style="display: none;"><code>linkedList.addToTail(<span class="number">4</span>);
+expect(linkedList.tail.value).to.equal(<span class="number">4</span>);
+linkedList.addToTail(<span class="number">5</span>);
+expect(linkedList.tail.value).to.equal(<span class="number">5</span>);</code></pre></li><li class="test pass fast"><h2>should remove the head from the list when removeHead is called<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=linkedList%20should%20remove%20the%20head%20from%20the%20list%20when%20removeHead%20is%20called" class="replay">‣</a></h2><pre style="display: none;"><code>linkedList.addToTail(<span class="number">4</span>);
+linkedList.addToTail(<span class="number">5</span>);
+expect(linkedList.head.value).to.equal(<span class="number">4</span>);
+linkedList.removeHead();
+expect(linkedList.head.value).to.equal(<span class="number">5</span>);</code></pre></li><li class="test pass fast"><h2>should return the value of the former head when removeHead is called<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=linkedList%20should%20return%20the%20value%20of%20the%20former%20head%20when%20removeHead%20is%20called" class="replay">‣</a></h2><pre style="display: none;"><code>linkedList.addToTail(<span class="number">4</span>);
+expect(linkedList.removeHead()).to.equal(<span class="number">4</span>);</code></pre></li><li class="test pass fast"><h2>should contain a value that was added<span class="duration">1ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=linkedList%20should%20contain%20a%20value%20that%20was%20added" class="replay">‣</a></h2><pre style="display: none;"><code>linkedList.addToTail(<span class="number">4</span>);
+linkedList.addToTail(<span class="number">5</span>);
+expect(linkedList.contains(<span class="number">4</span>)).to.equal(true);
+expect(linkedList.contains(<span class="number">5</span>)).to.equal(true);
+expect(linkedList.contains(<span class="number">6</span>)).to.equal(false);</code></pre></li><li class="test pass fast"><h2>should not contain a value that was removed<span class="duration">1ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=linkedList%20should%20not%20contain%20a%20value%20that%20was%20removed" class="replay">‣</a></h2><pre style="display: none;"><code>linkedList.addToTail(<span class="number">4</span>);
+linkedList.addToTail(<span class="number">5</span>);
+linkedList.removeHead();
+expect(linkedList.contains(<span class="number">4</span>)).to.equal(false);</code></pre></li><li class="test pass fast"><h2>should remove tail when removeTail is called<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=linkedList%20should%20remove%20tail%20when%20removeTail%20is%20called" class="replay">‣</a></h2><pre style="display: none;"><code>linkedList.addToTail(<span class="number">4</span>);
+linkedList.addToTail(<span class="number">5</span>);
+expect(linkedList.tail.value).to.equal(<span class="number">5</span>);
+expect(linkedList.removeTail()).to.equal(<span class="number">5</span>);
+expect(linkedList.tail.value).to.equal(<span class="number">4</span>);</code></pre></li></ul></li><li class="suite"><h1><a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=tree">tree</a></h1><ul><li class="test pass fast"><h2>should have methods named "addChild" and "contains", and a property named "value"<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=tree%20should%20have%20methods%20named%20%22addChild%22%20and%20%22contains%22%2C%20and%20a%20property%20named%20%22value%22" class="replay">‣</a></h2><pre style="display: none;"><code>expect(tree.addChild).to.be.a("<span class="keyword">function</span>");
+expect(tree.contains).to.be.a("<span class="keyword">function</span>");
+expect(tree.hasOwnProperty("value")).to.equal(true);</code></pre></li><li class="test pass fast"><h2>should add children to the tree<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=tree%20should%20add%20children%20to%20the%20tree" class="replay">‣</a></h2><pre style="display: none;"><code>tree.addChild(<span class="number">5</span>);
+expect(tree.children[<span class="number">0</span>].value).to.equal(<span class="number">5</span>);</code></pre></li><li class="test pass fast"><h2>should return true for a value that the tree contains<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=tree%20should%20return%20true%20for%20a%20value%20that%20the%20tree%20contains" class="replay">‣</a></h2><pre style="display: none;"><code>tree.addChild(<span class="number">5</span>);
+expect(tree.contains(<span class="number">5</span>)).to.equal(true);</code></pre></li><li class="test pass fast"><h2>should return false for a value that was not added<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=tree%20should%20return%20false%20for%20a%20value%20that%20was%20not%20added" class="replay">‣</a></h2><pre style="display: none;"><code>tree.addChild(<span class="number">5</span>);
+expect(tree.contains(<span class="number">6</span>)).to.equal(false);</code></pre></li><li class="test pass fast"><h2>should be able to add children to a tree's child<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=tree%20should%20be%20able%20to%20add%20children%20to%20a%20tree%27s%20child" class="replay">‣</a></h2><pre style="display: none;"><code>tree.addChild(<span class="number">5</span>);
+tree.children[<span class="number">0</span>].addChild(<span class="number">6</span>);
+expect(tree.children[<span class="number">0</span>].children[<span class="number">0</span>].value).to.equal(<span class="number">6</span>);</code></pre></li><li class="test pass fast"><h2>should correctly detect nested children<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=tree%20should%20correctly%20detect%20nested%20children" class="replay">‣</a></h2><pre style="display: none;"><code>tree.addChild(<span class="number">5</span>);
+tree.addChild(<span class="number">6</span>);
+tree.children[<span class="number">0</span>].addChild(<span class="number">7</span>);
+tree.children[<span class="number">1</span>].addChild(<span class="number">8</span>);
+expect(tree.contains(<span class="number">7</span>)).to.equal(true);
+expect(tree.contains(<span class="number">8</span>)).to.equal(true);</code></pre></li><li class="test pass fast"><h2>should return the size of the tree<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=tree%20should%20return%20the%20size%20of%20the%20tree" class="replay">‣</a></h2><pre style="display: none;"><code>tree.addChild(<span class="number">5</span>);
+expect(tree.getSize()).to.equal(<span class="number">2</span>);
+tree.addChild(<span class="number">4</span>);
+expect(tree.getSize()).to.equal(<span class="number">3</span>);
+tree.children[<span class="number">0</span>].addChild(<span class="number">1</span>);
+expect(tree.getSize()).to.equal(<span class="number">4</span>);
+tree.children[<span class="number">0</span>].children[<span class="number">0</span>].addChild(<span class="number">8</span>);
+expect(tree.getSize()).to.equal(<span class="number">5</span>);</code></pre></li><li class="test pass fast"><h2>should point to its parent<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=tree%20should%20point%20to%20its%20parent" class="replay">‣</a></h2><pre style="display: none;"><code>tree.addChild(<span class="number">4</span>);
+expect(tree.children[<span class="number">0</span>].parent.value).to.equal(<span class="number">5</span>);</code></pre></li><li class="test fail"><h2>should remove from parent <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=tree%20should%20remove%20from%20parent" class="replay">‣</a></h2><pre class="error">AssertionError: expected { Object (size, value, ...) } to equal 'b'</pre><pre style="display: none;"><code>tree.addChild(<span class="number">4</span>);
+<span class="keyword">var</span> child = tree.children[<span class="number">0</span>];
+child.addChild(<span class="number">6</span>);
+child.removeFromParent();
+expect(child.parent).to.equal("b");
+expect(tree.children[<span class="number">0</span>]).to.equal(null);</code></pre></li></ul></li><li class="suite"><h1><a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=graph">graph</a></h1><ul><li class="test pass fast"><h2>should have methods named "addNode", "contains", "removeNode", "addEdge", "hasEdge", "removeEdge" and "forEachNode"<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=graph%20should%20have%20methods%20named%20%22addNode%22%2C%20%22contains%22%2C%20%22removeNode%22%2C%20%22addEdge%22%2C%20%22hasEdge%22%2C%20%22removeEdge%22%20and%20%22forEachNode%22" class="replay">‣</a></h2><pre style="display: none;"><code>expect(graph.addNode).to.be.a("<span class="keyword">function</span>");
+expect(graph.contains).to.be.a("<span class="keyword">function</span>");
+expect(graph.removeNode).to.be.a("<span class="keyword">function</span>");
+expect(graph.hasEdge).to.be.a("<span class="keyword">function</span>");
+expect(graph.addEdge).to.be.a("<span class="keyword">function</span>");
+expect(graph.removeEdge).to.be.a("<span class="keyword">function</span>");
+expect(graph.forEachNode).to.be.a("<span class="keyword">function</span>");</code></pre></li><li class="test pass fast"><h2>should store values as nodes that were inserted<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=graph%20should%20store%20values%20as%20nodes%20that%20were%20inserted" class="replay">‣</a></h2><pre style="display: none;"><code>graph.addNode(<span class="number">1</span>);
+expect(graph.contains(<span class="number">1</span>)).to.equal(true);</code></pre></li><li class="test pass fast"><h2>should remove nodes that were inserted<span class="duration">1ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=graph%20should%20remove%20nodes%20that%20were%20inserted" class="replay">‣</a></h2><pre style="display: none;"><code>graph.addNode(<span class="number">2</span>);
+expect(graph.contains(<span class="number">2</span>)).to.equal(true);
+graph.removeNode(<span class="number">2</span>);
+expect(graph.contains(<span class="number">2</span>)).to.equal(false);</code></pre></li><li class="test pass fast"><h2>should create edges between two nodes<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=graph%20should%20create%20edges%20between%20two%20nodes" class="replay">‣</a></h2><pre style="display: none;"><code>graph.addNode(<span class="number">2</span>);
+graph.addNode(<span class="number">1</span>);
+graph.addNode(<span class="number">3</span>);
+graph.addEdge(<span class="number">3</span>, <span class="number">2</span>);
+expect(graph.hasEdge(<span class="number">3</span>, <span class="number">2</span>)).to.equal(true);
+expect(graph.hasEdge(<span class="number">3</span>, <span class="number">1</span>)).to.equal(false);</code></pre></li><li class="test pass fast"><h2>should remove edges between nodes<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=graph%20should%20remove%20edges%20between%20nodes" class="replay">‣</a></h2><pre style="display: none;"><code>graph.addNode(<span class="number">4</span>);
+graph.addNode(<span class="number">5</span>);
+graph.addEdge(<span class="number">5</span>, <span class="number">4</span>);
+expect(graph.hasEdge(<span class="number">4</span>, <span class="number">5</span>)).to.equal(true);
+graph.removeEdge(<span class="number">5</span>, <span class="number">4</span>);
+expect(graph.hasEdge(<span class="number">4</span>, <span class="number">5</span>)).to.equal(false);</code></pre></li><li class="test pass fast"><h2>should remove edges between nodes when a node is removed<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=graph%20should%20remove%20edges%20between%20nodes%20when%20a%20node%20is%20removed" class="replay">‣</a></h2><pre style="display: none;"><code>graph.addNode(<span class="number">4</span>);
+graph.addNode(<span class="number">5</span>);
+graph.addEdge(<span class="number">5</span>, <span class="number">4</span>);
+expect(graph.hasEdge(<span class="number">4</span>, <span class="number">5</span>)).to.equal(true);
+graph.removeNode(<span class="number">5</span>);
+expect(graph.hasEdge(<span class="number">4</span>, <span class="number">5</span>)).to.equal(false);</code></pre></li><li class="test pass fast"><h2>should execute a callback on each node in the graph<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=graph%20should%20execute%20a%20callback%20on%20each%20node%20in%20the%20graph" class="replay">‣</a></h2><pre style="display: none;"><code><span class="keyword">var</span> connectToFive = <span class="keyword">function</span>(item) {
+  graph.addEdge(item, <span class="number">5</span>);
+};
+graph.addNode(<span class="number">5</span>);
+graph.addNode(<span class="number">2</span>);
+graph.addNode(<span class="number">1</span>);
+graph.addNode(<span class="number">3</span>);
+graph.forEachNode(connectToFive);
+expect(graph.hasEdge(<span class="number">2</span>, <span class="number">5</span>)).to.equal(true);
+expect(graph.hasEdge(<span class="number">1</span>, <span class="number">5</span>)).to.equal(true);
+expect(graph.hasEdge(<span class="number">3</span>, <span class="number">5</span>)).to.equal(true);
+expect(graph.hasEdge(<span class="number">5</span>, <span class="number">5</span>)).to.equal(true);</code></pre></li></ul></li><li class="suite"><h1><a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=set">set</a></h1><ul><li class="test pass fast"><h2>should have methods named "add", "contains", and "remove"<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=set%20should%20have%20methods%20named%20%22add%22%2C%20%22contains%22%2C%20and%20%22remove%22" class="replay">‣</a></h2><pre style="display: none;"><code>expect(set.add).to.be.a(<span class="string">'<span class="keyword">function</span>'</span>);
+expect(set.contains).to.be.a(<span class="string">'<span class="keyword">function</span>'</span>);
+expect(set.remove).to.be.a(<span class="string">'<span class="keyword">function</span>'</span>);</code></pre></li><li class="test pass fast"><h2>should add values to a set<span class="duration">1ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=set%20should%20add%20values%20to%20a%20set" class="replay">‣</a></h2><pre style="display: none;"><code>set.add(<span class="string">'Susan Sarandon'</span>);
+set.add(<span class="string">'Danny Glover'</span>);
+expect(set.contains(<span class="string">'Danny Glover'</span>)).to.equal(true);
+expect(set.contains(<span class="string">'Susan Sarandon'</span>)).to.equal(true);</code></pre></li><li class="test pass fast"><h2>should remove values from a set<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=set%20should%20remove%20values%20from%20a%20set" class="replay">‣</a></h2><pre style="display: none;"><code>set.add(<span class="string">'Mel Gibson'</span>);
+set.remove(<span class="string">'Mel Gibson'</span>);
+expect(set.contains(<span class="string">'Mel Gibson'</span>)).to.equal(false);</code></pre></li></ul></li><li class="suite"><h1><a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=hashTable">hashTable</a></h1><ul><li class="test pass fast"><h2>should have methods named "insert", "remove", and "retrieve<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=hashTable%20should%20have%20methods%20named%20%22insert%22%2C%20%22remove%22%2C%20and%20%22retrieve" class="replay">‣</a></h2><pre style="display: none;"><code>expect(hashTable.insert).to.be.a(<span class="string">'<span class="keyword">function</span>'</span>);
+expect(hashTable.remove).to.be.a(<span class="string">'<span class="keyword">function</span>'</span>);
+expect(hashTable.retrieve).to.be.a(<span class="string">'<span class="keyword">function</span>'</span>);</code></pre></li><li class="test pass fast"><h2>should store values that were inserted<span class="duration">1ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=hashTable%20should%20store%20values%20that%20were%20inserted" class="replay">‣</a></h2><pre style="display: none;"><code>hashTable.insert(<span class="string">'Steven'</span>, <span class="string">'Seagal'</span>);
+expect(hashTable.retrieve(<span class="string">'Steven'</span>)).to.equal(<span class="string">'Seagal'</span>);</code></pre></li><li class="test pass fast"><h2>should not contain values that were not inserted<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=hashTable%20should%20not%20contain%20values%20that%20were%20not%20inserted" class="replay">‣</a></h2><pre style="display: none;"><code>hashTable.insert(<span class="string">'Steven'</span>, <span class="string">'Spielberg'</span>);
+expect(hashTable.retrieve(<span class="string">'Steven'</span>)).not.to.equal(<span class="string">'Seagal'</span>);</code></pre></li><li class="test pass fast"><h2>should overwrite values that have the same key<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=hashTable%20should%20overwrite%20values%20that%20have%20the%20same%20key" class="replay">‣</a></h2><pre style="display: none;"><code>hashTable.insert(<span class="string">'Bob'</span>, <span class="string">'Loblaw'</span>);
+hashTable.insert(<span class="string">'Bob'</span>, <span class="string">'Barker'</span>);
+expect(hashTable.retrieve(<span class="string">'Bob'</span>)).to.equal(<span class="string">'Barker'</span>);</code></pre></li><li class="test pass fast"><h2>should not contain values that were removed<span class="duration">1ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=hashTable%20should%20not%20contain%20values%20that%20were%20removed" class="replay">‣</a></h2><pre style="display: none;"><code>hashTable.insert(<span class="string">'Steven'</span>, <span class="string">'Tyler'</span>);
+hashTable.remove(<span class="string">'Steven'</span>);
+expect(hashTable.retrieve(<span class="string">'Steven'</span>)).to.equal(undefined);</code></pre></li><li class="test pass fast"><h2>should handle hash function collisions<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=hashTable%20should%20handle%20hash%20function%20collisions" class="replay">‣</a></h2><pre style="display: none;"><code><span class="keyword">var</span> v<span class="number">1</span> = <span class="string">'val<span class="number">1</span>'</span>;
+<span class="keyword">var</span> v<span class="number">2</span> = <span class="string">'val<span class="number">2</span>'</span>;
+<span class="keyword">var</span> oldHashFunction = window.getIndexBelowMaxForKey;
+window.getIndexBelowMaxForKey = <span class="keyword">function</span>() { <span class="keyword">return</span> <span class="number">0</span>; };
+hashTable.insert(v<span class="number">1</span>, v<span class="number">1</span>);
+hashTable.insert(v<span class="number">2</span>, v<span class="number">2</span>);
+expect(hashTable.retrieve(v<span class="number">1</span>)).to.equal(v<span class="number">1</span>);
+expect(hashTable.retrieve(v<span class="number">2</span>)).to.equal(v<span class="number">2</span>);
+window.getIndexBelowMaxForKey = oldHashFunction;</code></pre></li><li class="test pass pending"><h2>should double in size when needed</h2></li><li class="test pass pending"><h2>should halve in size when needed</h2></li></ul></li><li class="suite"><h1><a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=binarySearchTree">binarySearchTree</a></h1><ul><li class="test pass fast"><h2>should have methods named "insert", "contains", and "depthFirstLog<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=binarySearchTree%20should%20have%20methods%20named%20%22insert%22%2C%20%22contains%22%2C%20and%20%22depthFirstLog" class="replay">‣</a></h2><pre style="display: none;"><code>expect(binarySearchTree.insert).to.be.a(<span class="string">'<span class="keyword">function</span>'</span>);
+expect(binarySearchTree.contains).to.be.a(<span class="string">'<span class="keyword">function</span>'</span>);
+expect(binarySearchTree.depthFirstLog).to.be.a(<span class="string">'<span class="keyword">function</span>'</span>);</code></pre></li><li class="test pass fast"><h2>should insert values at the correct location in the tree<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=binarySearchTree%20should%20insert%20values%20at%20the%20correct%20location%20in%20the%20tree" class="replay">‣</a></h2><pre style="display: none;"><code>binarySearchTree.insert(<span class="number">2</span>);
+binarySearchTree.insert(<span class="number">3</span>);
+binarySearchTree.insert(<span class="number">7</span>);
+binarySearchTree.insert(<span class="number">6</span>);
+expect(binarySearchTree.left.right.value).to.equal(<span class="number">3</span>);
+expect(binarySearchTree.right.left.value).to.equal(<span class="number">6</span>);</code></pre></li><li class="test pass fast"><h2>should have a working "contains" method<span class="duration">0ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=binarySearchTree%20should%20have%20a%20working%20%22contains%22%20method" class="replay">‣</a></h2><pre style="display: none;"><code>binarySearchTree.insert(<span class="number">2</span>);
+binarySearchTree.insert(<span class="number">3</span>);
+binarySearchTree.insert(<span class="number">7</span>);
+expect(binarySearchTree.contains(<span class="number">7</span>)).to.equal(true);
+expect(binarySearchTree.contains(<span class="number">8</span>)).to.equal(false);</code></pre></li><li class="test pass fast"><h2>should execute a callback on every value in a tree using "depthFirstLog"<span class="duration">1ms</span> <a href="file:///Users/brianembry/Dropbox/HR/Week0/sprint-1-stacks-and-queues/hratx42-data-structures/sprint-two/SpecRunner.html?grep=binarySearchTree%20should%20execute%20a%20callback%20on%20every%20value%20in%20a%20tree%20using%20%22depthFirstLog%22" class="replay">‣</a></h2><pre style="display: none;"><code><span class="keyword">var</span> array = [];
+<span class="keyword">var</span> func = <span class="keyword">function</span>(value) { array.push(value); };
+binarySearchTree.insert(<span class="number">2</span>);
+binarySearchTree.insert(<span class="number">3</span>);
+binarySearchTree.insert(<span class="number">7</span>);
+binarySearchTree.depthFirstLog(func);
+expect(array).to.eql([<span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>]);</code></pre></li></ul></li></ul></div>
+  
+
+</body></html>
